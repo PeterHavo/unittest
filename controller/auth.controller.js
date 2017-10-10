@@ -17,11 +17,22 @@ function AuthController (){
        },2100)
         
     }
+    function isAuthorizeAsyncPromise( neededRole,cb){
+        return new Promise (function (resolve){
+            setTimeout(function () {
+           resolve(roles.indexOf(neededRole) >=0)
+       },2100)
+            
+        })
+       
+        
+    }
     
     return {
         isAuthorize,
         isAuthorizeAsync,
-        setRoles
+        setRoles,
+        isAuthorizeAsyncPromise
             }
 }
 
