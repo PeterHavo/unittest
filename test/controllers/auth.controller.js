@@ -4,6 +4,7 @@ var expect = require("chai").expect;
 var should = require("chai").should();
 var chai = require("chai")
 var chaiaspromise = require("chai-as-promised")
+var sinon = require("sinon")
 chai.use(chaiaspromise)
 chai.should();
 
@@ -59,6 +60,18 @@ describe('authorization test promise', function ()  {
 })
 
 
+
+describe('get index route with req, res object and get index we will use sinon', function(){
+    it('should render index', function(){
+        var req = {};
+        var res = {
+            render: sinon.spy()
+        };
+        authorize.getIndex(req, res)
+        res.render.calledOnce.should.be.true
+    })
+    
+})
 
 
    
