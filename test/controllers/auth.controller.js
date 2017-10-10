@@ -1,12 +1,15 @@
 var assert = require("assert")
 var authorize = require("../../controller/auth.controller")
-try{
+var expect = require("chai").expect;
+
+
+
 describe('authorization test', () => {
     describe('checking athorization for admin rights', () => {
         it('it should fail if user does not have admin rights', () => {
             authorize.setRoles(['user'])
-          
-            assert.equal(false, authorize.isAuthorize( 'admin'))
+            var isAuth =  authorize.isAuthorize( 'admin')
+                 expect(isAuth).to.be.false
         })
         it('it should return true if user is authorize', () => {
              authorize.setRoles(['user'])
@@ -24,10 +27,11 @@ describe('authorization test', () => {
 describe('authorization test async', function ()  {
     beforeEach(function(){
         console.log('before each!!!')
+          authorize.setRoles(['admin'])
     })
     it('pass if user does not have admin rights', function (done)  {
        this.timeout(3000);
-        authorize.setRoles(['admin'])
+      
         authorize.isAuthorizeAsync('admin', function (auth)  {
            
             assert.equal(true, auth)
@@ -36,9 +40,7 @@ describe('authorization test async', function ()  {
     })
 })
 
-}
 
-catch(e) {
-    console.log(e.message)
-}
+
+
    
