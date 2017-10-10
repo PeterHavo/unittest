@@ -11,12 +11,16 @@ function AuthController (){
         return roles.indexOf(neededRole) >=0
         
     }
+    
+    
      function isAuthorizeAsync( neededRole,cb){
        setTimeout(function () {
            cb(roles.indexOf(neededRole) >=0)
        },2100)
         
     }
+    
+    
     function isAuthorizeAsyncPromise( neededRole,cb){
         return new Promise (function (resolve){
             setTimeout(function () {
@@ -25,14 +29,22 @@ function AuthController (){
             
         })
        
-        
     }
+    
+    
+    function getIndex(req, res) {
+        res.render('index')
+    }
+    
+    
+    
     
     return {
         isAuthorize,
         isAuthorizeAsync,
         setRoles,
-        isAuthorizeAsyncPromise
+        isAuthorizeAsyncPromise,
+        getIndex
             }
 }
 
