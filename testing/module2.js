@@ -11,7 +11,7 @@ var someLogger = 'logger'
 const  someAsynfun = () => {
     return new Promise((res, rej) => {
         setTimeout(() => {
-            res(10)
+            res(110)
         }, 2000)
     })
    

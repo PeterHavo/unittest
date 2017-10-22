@@ -3,7 +3,7 @@ var someLogger = 'logger'
 
 const  someAsynfun = () => {
     setTimeout(() => {
-        console.log('creating Blob')
+        console.log('creating Blo')
     }, 10000)
     
 }
@@ -11,7 +11,7 @@ const  someAsynfun = () => {
 module.exports = (req, res ) => {
     
     return  {
-       name: 'test',
+       name: 'tes',
        someAsynfun
        
    }
