@@ -2,6 +2,14 @@
 function AuthController (){
     
     var roles;
+    var userr ={}
+    
+    function setUser(user,role){
+        userr.roles = user.roles
+        userr.isAuthorized = (role) => {
+            return this.roles.indexOf(role) >=0;
+        }
+    }
     
     function setRoles(role) {
         roles = role; 

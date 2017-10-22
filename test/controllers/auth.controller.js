@@ -74,4 +74,15 @@ describe('get index route with req, res object and get index we will use sinon',
 })
 
 
-   
+describe('is authorized using objects', () => {
+    let user
+    beforeEach(() => {
+        user = {
+            roles: ['admin', 'manager']
+     }
+        authorize.setUser(user)
+    })
+    it('should return true if user is admin ', () => {
+        
+    })
+})
